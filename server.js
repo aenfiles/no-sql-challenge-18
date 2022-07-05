@@ -4,8 +4,10 @@ const routes = require('./routes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Linking models folder to the server
 const { User, Thought } = require('./models');
 
+// Linking package.json to the app
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,7 +19,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/socialNetdb', {
     useUnifiedTopology: true
 });
 
-// mongoose.set('useCreateIndex', true);
 mongoose.set('debug', true);
 
 
